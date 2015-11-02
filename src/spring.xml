@@ -2,8 +2,11 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
-	<bean id="triangle" class="org.koushik.javabrains.Triangle" >
-		<property name="pointA" ref="zeroPoint" />
+	<bean id="triangle" class="org.koushik.javabrains.Triangle" name="triangle-name" >
+		<property name="pointA">
+			<!-- This is to provide full proof validation to only look for the bean id not the name and alias while the ref can look for alias and name as well.-->
+			<idref ="zeroPoint" />
+		</property>
 		<property name="pointB">
 			<bean class="org.koushik.javabrains.Point" >
 				<property name="x" value="0" />
@@ -22,5 +25,8 @@
 		<property name="x" value="0" />
 		<property name="y" value="0" />
 	</bean>
+	
+	<!--  We can make aliases to the bean objects and ref attribute can access through alias as well as id and name -->
+	<alias name="triangle" alias="triangle-alias" />
 	
 </beans>
