@@ -2,27 +2,21 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
-	<bean id="triangle" class="org.koushik.javabrains.Triangle" >
-		<property name="points">
-			<list>
-				<ref bean="zeroPoint"/>
-				<ref bean="point2"/>
-				<ref bean="point3"/>
-			</list>
-		</property>
+	<!-- If the property name is same as the bean id in spring.xml and autowire byName it looks for the bean with the same name in Class -->
+	<bean id="triangle" class="org.koushik.javabrains.Triangle" autowire="byName">
 	</bean>
 	
-	<bean id="zeroPoint" class="org.koushik.javabrains.Point" >
+	<bean id="pointA" class="org.koushik.javabrains.Point" >
 		<property name="x" value="0" />
 		<property name="y" value="0" />
 	</bean>
 	
-	<bean id="point2" class="org.koushik.javabrains.Point" >
+	<bean id="pointB" class="org.koushik.javabrains.Point" >
 		<property name="x" value="0" />
 		<property name="y" value="20" />
 	</bean>
 	
-	<bean id="point3" class="org.koushik.javabrains.Point" >
+	<bean id="pointC" class="org.koushik.javabrains.Point" >
 		<property name="x" value="-20" />
 		<property name="y" value="0" />
 	</bean>
